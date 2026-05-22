@@ -1,0 +1,75 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "API REST - Proyecto Integrador 2",
+    "version": "1.0.0",
+    "description": "Documentación interactiva de Autores y Posts"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor Local"
+    }
+  ],
+  "paths": {
+    "/api/authors": {
+      "get": {
+        "summary": "Obtener todos los autores",
+        "responses": {
+          "200": { "description": "Lista de autores devuelta con éxito." }
+        }
+      },
+      "post": {
+        "summary": "Crear un nuevo autor",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": { "type": "string" },
+                  "email": { "type": "string" },
+                  "bio": { "type": "string" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Autor creado." }
+        }
+      }
+    },
+    "/api/posts": {
+      "get": {
+        "summary": "Obtener todas las publicaciones",
+        "responses": {
+          "200": { "description": "Lista de publicaciones devuelta con éxito." }
+        }
+      },
+      "post": {
+        "summary": "Crear una nueva publicación",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "title": { "type": "string" },
+                  "content": { "type": "string" },
+                  "author_id": { "type": "integer" },
+                  "published": { "type": "boolean" }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": { "description": "Publicación creada." }
+        }
+      }
+    }
+  }
+}
